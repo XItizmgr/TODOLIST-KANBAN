@@ -1,0 +1,182 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --bg-color: rgba(0, 0, 0, 0.941);
+  --primary-text-color: rgba(250, 238, 238, 0.993);
+  --padding-nav: 10px 30px;
+  --padding-s: 10px;
+  --padding-l: 20px;
+  --padding-xl: 30px;
+  --padding-exl: 40px;
+}
+body {
+  height: 100vh;
+  /* width: 100vw; */
+  background: var(--bg-color);
+  color: var(--primary-text-color);
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--padding-nav);
+}
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+nav button {
+  padding: var(--padding-s);
+  border-style: none;
+  outline: none;
+  border-radius: 10px;
+  background-color: rgb(32, 31, 31);
+  color: var(--primary-text-color);
+  cursor: pointer;
+  transition: scale 0.2s ease-in;
+  &:hover {
+    scale: 1.1;
+    background-color: rgb(52, 50, 50);
+    box-shadow: 0px 0px 7px rgb(255, 255, 255);
+  }
+}
+#section-first {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-evenly;
+  gap: var(--padding-s);
+  padding: var(--padding-l) var(--padding-exl);
+
+  /* background-color: aquamarine; */
+}
+#section-first .Task-colum {
+  display: flex;
+  max-width: 450px;
+
+  flex-grow: 1;
+  background-color: rgb(74, 71, 71);
+  border-radius: var(--padding-s);
+  padding: var(--padding-l);
+  transition:
+    scale 0.3s ease,
+    transform 0.3s ease;
+  gap: 10px;
+  flex-direction: column;
+}
+.Task-list {
+  display: flex;
+  gap: var(--padding-s);
+  flex-direction: column;
+}
+.Header-todo {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+}
+.Task-colum.hover {
+  scale: 1.03;
+  transform: translateY(-10px);
+  border: 2px dotted white;
+}
+.Todo-item {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  background: rgb(44, 44, 44);
+  border-radius: var(--padding-s);
+  padding: var(--padding-l);
+  cursor: grab;
+}
+.Todo-item button {
+  align-self: flex-end;
+  background-color: rgb(204, 63, 96);
+  padding: 5px var(--padding-l);
+  border-radius: var(--padding-s);
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 2rem;
+  font-family: "Courier New", Courier, monospace;
+}
+h2{
+   font-size: 1.5rem;
+  font-family: "Courier New", Courier, monospace;
+}
+p {
+  font-size: 1.1rem;
+  font-family: "Courier New", Courier, monospace;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  background-color: rgba(0, 0, 0, 0.631);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.5s,
+    visibility 0.5s;
+}
+.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal form {
+  background-color: rgb(24, 24, 24);
+  border: 2px solid rgb(8, 7, 7);
+  border-radius: 7px;
+  padding: var(--padding-l);
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-s);
+  min-width: 250px;
+  min-height: 200px;
+}
+.modal form input,
+.modal form textarea {
+  background-color: rgba(60, 59, 59, 0.694);
+  border-radius: 4px;
+  color: white;
+  padding: var(--padding-s);
+  border: none;
+  outline: none;
+}
+.modal form button {
+  padding: var(--padding-s);
+  border-style: none;
+  outline: none;
+  border-radius: 10px;
+  background-color: rgb(32, 31, 31);
+  color: var(--primary-text-color);
+  cursor: pointer;
+
+  transition: scale 0.2s ease-in;
+  &:hover {
+    scale: 1.01;
+    background-color: rgb(52, 50, 50);
+    box-shadow: 0px 0px 7px rgb(255, 255, 255);
+  }
+}
+
+@media (max-width: 430px) {
+  html {
+    font-size: 13px;
+  }
+  #section-first {
+    flex-direction: column;
+  }
+}
